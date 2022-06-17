@@ -34,7 +34,7 @@ main {
   text-align: center;
 }
 
-/* Meteo info */
+/* Weather info */
 
 .weather-info {
   margin-bottom: 32px;
@@ -51,4 +51,24 @@ main {
 
 .weather-temperature {
   font-size: 112px;
+}
+
+/* Advice Panel */
+
+.panel {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.panel h4 {
+  font-size: 16px;
+  font-weight: normal;
+  color: steelblue;
+  margin-bottom: 12px;
+}
+
+.suggestion {
+  font-size: 18px;
+  font-weight: bold;
 }
