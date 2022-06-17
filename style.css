@@ -21,3 +21,15 @@ html {
   margin: 0 auto;
   padding: 16px;
 }
+
+/* Logo */
+img {
+  width: 56px;
+  height: auto;
+}
+
+/* Central content */
+
+main {
+  text-align: center;
+}
