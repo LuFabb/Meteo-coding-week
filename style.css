@@ -23,7 +23,7 @@ html {
 }
 
 /* Logo */
-img {
+header img {
   width: 56px;
   height: auto;
 }
@@ -32,4 +32,23 @@ img {
 
 main {
   text-align: center;
+}
+
+/* Meteo info */
+
+.weather-info {
+  margin-bottom: 32px;
+}
+
+.weather-icon {
+  max-width: 100%;
+}
+
+.weather-location {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weather-temperature {
+  font-size: 112px;
 }
