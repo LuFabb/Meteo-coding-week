@@ -42,6 +42,7 @@ main {
 
 .weather-icon {
   max-width: 100%;
+  transition: transform 0.5s, opacity 1s;
 }
 
 .weather-location {
@@ -59,6 +60,7 @@ main {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
+  transition: opacity 0.5s, transform 0.5s;
 }
 
 .panel h4 {
@@ -71,4 +73,16 @@ main {
 .suggestion {
   font-size: 18px;
   font-weight: bold;
+}
+
+/* Loading effect */
+
+.js-loading .weather-icon {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.js-loading .panel {
+  opacity: 0;
+  transform: scale(0);
 }
