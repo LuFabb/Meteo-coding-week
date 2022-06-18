@@ -20,4 +20,19 @@ function onError(error){
 // Function in case of success
 function onSuccess(position){
   console.log(position);
+  
+  // prepare dates for api
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  // you can't see apiKey for security reason
+  const apiKey = 'apiKey';
+  const language = 'en';
+  const units = 'metric';
+  const endPoint = 'https://api.openweathermap.org/data/2.5/weather'
+
+  // we build the adress, with a query string!
+
+  const apiUri = `${endPoint}?lon=${longitude}&lat=${latitude}&units=${units}&lang=${language}&appid=${apiKey}`
+
+  
 }
