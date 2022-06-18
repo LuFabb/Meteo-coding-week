@@ -34,5 +34,15 @@ function onSuccess(position){
 
   const apiUri = `${endPoint}?lon=${longitude}&lat=${latitude}&units=${units}&lang=${language}&appid=${apiKey}`
 
-  
+  // call our external service
+
+  fetch(apiUri)
+  .then(function(response){
+    // transform my response into a more readable format
+    const data = response.json();
+    return data;
+  })
+  .then(function(data) {
+    console.log(data);
+  });
 }
