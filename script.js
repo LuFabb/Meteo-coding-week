@@ -49,6 +49,38 @@ function onSuccess(position){
      const temperature = Math.floor(data.main.temp);
      const iconCode = data.weather[0].icon;
      const description = data.weather[0].description;
-    
+
+     // Prepare the right suggestion
+     const suggestion = getSuggestion(iconCode);
+
+     console.log(suggestion)
    });
 }
+
+// Function to retrieve the right suggestion
+
+function getSuggestion(iconCode) {
+  const suggestions = {
+    '01d': 'Remember the sunscreen!',
+    '01n': 'Goodnight!',
+    '02d': 'The sun come and goes today...',
+    '02n': 'Beware of werewolves...',
+    '03d': 'Perfect light for taking pictures!',
+    '03n': 'Sleep peacefully :)',
+    '04d': 'What a gray sky :(',
+    '04n': "You can't even seen the moon!",
+    '09d': 'Take the umbrella',
+    '09n': 'Cover up tightly!',
+    '10d': 'Take the umbrella',
+    '10n': 'Cover up tightly!',
+    '11d': 'Beware of lightning!',
+    '11n': 'Lightnings light up the night!',
+    '13d': 'Go out and make a snowman!',
+    '13n': 'Perfect night to stay under the duvet!',
+    '50d': 'Turn on the fog lights!',
+    '50n': 'Drive carefully!',
+  }
+  
+  return suggestions[iconCode];
+}
+
