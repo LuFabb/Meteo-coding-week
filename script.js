@@ -12,15 +12,15 @@ window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 
 // Function in case of error
-function onError(error){
+function onError(error) {
   console.error(error);
   weatherLocation.innerText = 'You need to activate the localization';
 }
 
 // Function in case of success
-function onSuccess(position){
+function onSuccess(position) {
   console.log(position);
-  
+
   // prepare dates for api
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -37,24 +37,32 @@ function onSuccess(position){
   // call our external service
 
   fetch(apiUri)
-  .then(function(response){
-    // transform my response into a more readable format
-    const data = response.json();
-    return data;
-  })
-  .then(function(data) {
-    console.log(data);
-     // extract the information we need
-     const locationName = data.name;
-     const temperature = Math.floor(data.main.temp);
-     const iconCode = data.weather[0].icon;
-     const description = data.weather[0].description;
+    .then(function (response) {
+      // transform my response into a more readable format
+      const data = response.json();
+      return data;
+    })
+    .then(function (data) {
+      console.log(data);
+      // extract the information we need
+      const locationName = data.name;
+      const temperature = Math.floor(data.main.temp);
+      const iconCode = data.weather[0].icon;
+      const description = data.weather[0].description;
 
-     // Prepare the right suggestion
-     const suggestion = getSuggestion(iconCode);
+      // Prepare the right suggestion
+      const suggestion = getSuggestion(iconCode);
 
-     console.log(suggestion)
-   });
+      // Insert data where we want to show them
+      weatherLocation.innerText = locationName;
+      weatherTemperature.innerText = `${temperature}°`;
+      weatherIcon.alt = description;
+      weatherIcon.src = `images/${iconCode}.png`;
+      suggestionParagraph.innerText = suggestion;
+
+      // Remove js-loading class
+      rootElement.classList.remove('js-loading');
+    });
 }
 
 // Function to retrieve the right suggestion
@@ -80,7 +88,7 @@ function getSuggestion(iconCode) {
     '50d': 'Turn on the fog lights!',
     '50n': 'Drive carefully!',
   }
-  
+
   return suggestions[iconCode];
 }
 
