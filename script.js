@@ -44,5 +44,11 @@ function onSuccess(position){
   })
   .then(function(data) {
     console.log(data);
-  });
+     // extract the information we need
+     const locationName = data.name;
+     const temperature = Math.floor(data.main.temp);
+     const iconCode = data.weather[0].icon;
+     const description = data.weather[0].description;
+    
+   });
 }
